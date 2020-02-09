@@ -1,16 +1,28 @@
 package com.example.wgwotassistant.ui
 
 import android.os.Bundle
-import android.provider.ContactsContract
+import android.util.Log
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.wgwotassistant.R
+import com.example.wgwotassistant.data.Repository
+import com.example.wgwotassistant.data.WgApi
+import com.example.wgwotassistant.data.apiReader
+import com.example.wgwotassistant.ui.PlayersFragment.Companion.XP
+import com.example.wgwotassistant.ui.SearchFragment.Companion.ID
 import kotlinx.android.synthetic.main.player_stat.*
 import com.example.wgwotassistant.ui.SearchFragment.Companion.NICKNAME
+import com.google.gson.JsonParser
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class StatFragment : Fragment() {
+import kotlin.coroutines.CoroutineContext
+
+class StatFragment() : Fragment(){
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -18,6 +30,7 @@ class StatFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.player_stat, container, false)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mainMenu2.setOnClickListener {
@@ -29,6 +42,12 @@ class StatFragment : Fragment() {
                 ?.commit()
         }
 
+
+
+
         nameText.text = arguments?.getString(NICKNAME)
+        percentText.text =arguments?.getString(XP)
+
+
     }
 }

@@ -1,12 +1,16 @@
 package com.example.wgwotassistant.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.wgwotassistant.R
 import com.example.wgwotassistant.data.Repository
+import com.example.wgwotassistant.data.WgApi
+import com.example.wgwotassistant.data.apiReader
+import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -43,8 +47,15 @@ class SearchFragment(override val coroutineContext: CoroutineContext = Dispatche
 
                         val fragment = PlayersFragment()
                         val bundle = Bundle()
+
+                        val id = arguments?.getString(ID)
+
+
+
+
                         bundle.putString(ID, data.first().account_id.toString())
                         bundle.putString(NICKNAME, data.first().nickname)
+
                         fragment.arguments = bundle
 
                         fragmentManager?.beginTransaction()

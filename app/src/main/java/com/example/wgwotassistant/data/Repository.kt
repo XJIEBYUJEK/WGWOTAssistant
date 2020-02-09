@@ -1,10 +1,12 @@
 package com.example.wgwotassistant.data
 
+import com.example.wgwotassistant.ui.SearchFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 import kotlin.coroutines.CoroutineContext
 
 class Repository(override val coroutineContext: CoroutineContext = Dispatchers.IO
@@ -18,4 +20,8 @@ class Repository(override val coroutineContext: CoroutineContext = Dispatchers.I
     fun getIdForNickname(nickname: String) = async {
         api.getIdForNickname(nickname).execute().body()
     }
+
+
+
+
 }
