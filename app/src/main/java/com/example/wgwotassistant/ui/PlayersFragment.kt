@@ -28,8 +28,9 @@ class PlayersFragment(override val coroutineContext: CoroutineContext = Dispatch
     }
     companion object{
         const val XP = "xp"
+        const val BATTLES = "battles"
 
-
+        const val WINS = "wins"
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,12 +56,17 @@ class PlayersFragment(override val coroutineContext: CoroutineContext = Dispatch
             launch {
                 val url = "https://api.worldoftanks.ru/wot/account/info/?application_id=${WgApi.API_KEY}&fields=statistics.all&account_id=$id"
                 val gson = JsonParser().parse(apiReader(url)).asJsonObject
-                val xp = gson["data"].asJsonObject[id].asJsonObject["statistics"].asJsonObject["all"].asJsonObject["xp"].toString()
+                val path = gson["data"].asJsonObject[id].asJsonObject["statistics"].asJsonObject["all"].asJsonObject
+                val xp = path[XP].toString()
+                val battles = path[BATTLES].toString()
+                val wins = path[WINS].toString()
 
                 val bundle = Bundle()
                 val fragment = StatFragment()
                 bundle.putString(NICKNAME, nickname)
                 bundle.putString(XP, xp)
+                bundle.putString(WINS, wins)
+                bundle.putString(BATTLES, battles)
                 fragment.arguments = bundle
 
                 fragmentManager?.beginTransaction()

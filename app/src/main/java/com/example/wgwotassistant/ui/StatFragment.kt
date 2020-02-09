@@ -11,6 +11,8 @@ import com.example.wgwotassistant.R
 import com.example.wgwotassistant.data.Repository
 import com.example.wgwotassistant.data.WgApi
 import com.example.wgwotassistant.data.apiReader
+import com.example.wgwotassistant.ui.PlayersFragment.Companion.BATTLES
+import com.example.wgwotassistant.ui.PlayersFragment.Companion.WINS
 import com.example.wgwotassistant.ui.PlayersFragment.Companion.XP
 import com.example.wgwotassistant.ui.SearchFragment.Companion.ID
 import kotlinx.android.synthetic.main.player_stat.*
@@ -46,7 +48,12 @@ class StatFragment() : Fragment(){
 
 
         nameText.text = arguments?.getString(NICKNAME)
-        percentText.text =arguments?.getString(XP)
+        val battles = arguments?.getString(BATTLES).toString().toInt()
+        val xp = arguments?.getString(XP)
+        val wins = arguments?.getString(WINS).toString().toInt()
+        val percent = (wins*10000/battles).toDouble()/100
+        battlesText.text = battles.toString()
+        percentText.text = "$percent%"
 
 
     }
