@@ -7,23 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.wgwotassistant.R
-import com.example.wgwotassistant.ui.SearchFragment.Companion.ID
+import kotlinx.android.synthetic.main.player_stat.*
 import com.example.wgwotassistant.ui.SearchFragment.Companion.NICKNAME
-import kotlinx.android.synthetic.main.fragment_players.*
 
-class PlayersFragment : Fragment() {
+class StatFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_players, container, false)
+        return inflater.inflate(R.layout.player_stat, container, false)
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        mainMenu.setOnClickListener {
+        mainMenu2.setOnClickListener {
             fragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.container,
@@ -32,21 +29,6 @@ class PlayersFragment : Fragment() {
                 ?.commit()
         }
 
-        idText.text = arguments?.getString(ID)
-        val nickname = arguments?.getString(NICKNAME)
-        playerButton.text = nickname
-
-        playerButton.setOnClickListener {
-            val bundle = Bundle()
-            val fragment = StatFragment()
-            bundle.putString(NICKNAME, nickname)
-            fragment.arguments = bundle
-
-            fragmentManager?.beginTransaction()
-                ?.replace(R.id.container,fragment)      //переход на новый экран
-                ?.commit()
-        }
-
+        nameText.text = arguments?.getString(NICKNAME)
     }
-
 }

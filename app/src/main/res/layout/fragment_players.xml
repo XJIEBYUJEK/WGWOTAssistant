@@ -18,6 +18,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+    <Button
+        android:id="@+id/playerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Player"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/idText"/>
     <TextView
         android:id="@+id/idText"
         android:layout_width="wrap_content"

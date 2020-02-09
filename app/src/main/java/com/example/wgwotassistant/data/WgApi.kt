@@ -11,4 +11,6 @@ interface WgApi {
     }
     @GET("?application_id=$API_KEY&limit=1")
     fun getIdForNickname(@Query("search") nickname: String): Call<WG>
+
+
 }
