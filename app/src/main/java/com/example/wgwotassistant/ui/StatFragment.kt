@@ -51,7 +51,9 @@ class StatFragment() : Fragment(){
         val battles = arguments?.getString(BATTLES).toString().toInt()
         val xp = arguments?.getString(XP)
         val wins = arguments?.getString(WINS).toString().toInt()
-        val percent = (wins*10000/battles).toDouble()/100
+        var percent = 0.0
+        if (battles > 0)
+            percent = (wins*10000/battles).toDouble()/100
         battlesText.text = battles.toString()
         percentText.text = "$percent%"
 

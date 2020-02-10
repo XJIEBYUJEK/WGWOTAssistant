@@ -29,23 +29,11 @@
         tools:text="Alex" />
 
     <TextView
-
-        android:id="@+id/battlesText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="332dp"
-        android:layout_marginTop="104dp"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameText"
-        tools:text="420" />
-
-    <TextView
         android:id="@+id/percentText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="332dp"
+        android:layout_marginStart="304dp"
         android:layout_marginTop="148dp"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,11 +41,23 @@
         tools:text="42%" />
 
     <TextView
+
+        android:id="@+id/battlesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="304dp"
+        android:layout_marginTop="100dp"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameText"
+        tools:text="420" />
+
+    <TextView
         android:id="@+id/wn8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="332dp"
+        android:layout_marginStart="304dp"
         android:layout_marginTop="196dp"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +73,7 @@
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameText"
-        tools:text="Battles" />
+        android:text="Battles" />
 
     <TextView
         android:id="@+id/textView"
@@ -84,7 +84,7 @@
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameText"
-        tools:text="Wins" />
+        android:text="Wins" />
 
     <Button
         android:id="@+id/mainMenu2"
