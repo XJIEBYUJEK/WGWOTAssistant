@@ -2,7 +2,8 @@ package com.example.wgwotassistant.data
 
 data class WG(
 
-    val data: List<Data>
+    val data: List<Data>,
+    val status: String
 
 )
 data class Data(
